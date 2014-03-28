@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="BrickBreaker">
+	<property environment="env"/>
+	
 	<property name="base-dir" value="bin"/>
 	<property name="project-name" value="BrickBreaker"/>
 	<property name="created-by" value="Chris Wong"/>
 	<property name="class-path" value="jar/jfxrt.jar"/>
 	<property name="main-class" value="brickbreaker/Main"/>
 	<!-- TODO: note that it is absolute path -->
-	<property name="jfxrt.jar"  value="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jfxrt.jar"/>
+	<property name="jfxrt.jar"  value="${env.JAVAFXJAR}"/>
 	
 	<!-- prepare  -->
 	<target name="prepare">
@@ -56,6 +58,10 @@
 			<fileset dir="${base-dir}" includes="**/*.class"/>
 			<fileset dir="deploy" includes="**/*.jar"/>
 		</delete>
+	</target>
+	
+	<target name="help">
+		<echo>${jfxrt.jar}</echo>
 	</target>
 	
 </project>
